@@ -11,7 +11,13 @@ func willFail() types.AnyArray {
 	return types.AnyArray{"res1", "res2"}
 }
 
+func wontFail() types.AnyArray {
+	return types.AnyArray{"res1", "res2"}
+}
+
 func main() {
 	result, err := try.Try(willFail)
+	fmt.Printf("Got %v with error %v\n", result, err)
+	result, err = try.Try(wontFail)
 	fmt.Printf("Got %v with error %v\n", result, err)
 }

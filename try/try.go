@@ -5,13 +5,16 @@ import (
 )
 
 func Try(f func() types.AnyArray) (types.AnyArray, types.Any) {
-	var err types.Any
+	var err types.Any = nil
+	var result types.AnyArray = nil
 
-	defer func() {
-		err = recover()
+	func() {
+		defer func() {
+			err = recover()
+		}()
+
+		result = f()
 	}()
-
-	result := f()
 
 	return result, err
 }

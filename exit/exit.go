@@ -1,15 +1,19 @@
 package exit
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
+
+func Exit(code int) {
+	fmt.Printf("Exiting with code %v\n", code)
+	os.Exit(code)
+}
 
 func ExitSuccess() {
-	os.Exit(0)
+	Exit(0)
 }
 
 func ExitFailure() {
-	os.Exit(1)
-}
-
-func Exit(code int) {
-	os.Exit(code)
+	Exit(1)
 }

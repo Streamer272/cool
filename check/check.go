@@ -1,4 +1,4 @@
-package main
+package check
 
 func Check(err interface{}) {
 	if err != nil {

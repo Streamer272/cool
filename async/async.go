@@ -1,4 +1,4 @@
-package main
+package async
 
 import "github.com/Streamer272/cool/types"
 

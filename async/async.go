@@ -14,20 +14,20 @@ func Await(thread Thread) types.AnyArray {
 	return thread.callable()
 }
 
-func (thread *Thread) Then(callback func(...types.Any)) {
+func (thread *Thread) Then(callback func(array types.AnyArray)) {
 	go func() {
-		callback(thread.callable()...)
+		callback(thread.callable())
 	}()
 }
 
-func (thread *Thread) Catch(callback func(bool, ...types.Any)) {
+func (thread *Thread) Catch(callback func(types.Error, types.AnyArray)) {
 	go func() {
 		defer func() {
 			if err := recover(); err != nil {
-				callback(false, err)
+				callback(err, types.AnyArray{err})
 			}
 		}()
 
-		callback(true, thread.callable()...)
+		callback(nil, thread.callable())
 	}()
 }

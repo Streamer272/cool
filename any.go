@@ -1,4 +1,4 @@
-package types
+package main
 
 type Any interface{}
 type Error Any

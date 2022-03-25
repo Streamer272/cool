@@ -1,12 +1,10 @@
-package exit
+package main
 
 import (
-	"fmt"
 	"os"
 )
 
 func Exit(code int) {
-	fmt.Printf("Exiting with code %v\n", code)
 	os.Exit(code)
 }
 

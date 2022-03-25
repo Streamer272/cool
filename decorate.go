@@ -9,9 +9,9 @@ func Decorate(f func(), dec func(func()) func() AnyArray) func() AnyArray {
 	return dec(f)
 }
 
-func RecoverDecorator(f func()) func() AnyArray {
+func RecoverDecorator(f func(), callback func(err Any)) func() AnyArray {
 	return func() AnyArray {
-		defer recover.Recover()
+		defer Recover(callback)
 
 		f()
 

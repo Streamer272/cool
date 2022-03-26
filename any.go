@@ -1,4 +1,4 @@
-package main
+package cool
 
 type Any interface{}
 type Error Any

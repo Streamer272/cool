@@ -1,4 +1,4 @@
-package main
+package cool
 
 func Try(f func() AnyArray) (AnyArray, Any) {
 	var err Any = nil

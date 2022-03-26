@@ -1,4 +1,4 @@
-package main
+package cool
 
 func CheckErr(err interface{}) {
 	if err != nil {
